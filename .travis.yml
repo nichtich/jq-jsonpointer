@@ -1,0 +1,5 @@
+language: bash
+dist: xenial    # Ubuntu 16.04 base image includes jq 1.5
+
+before_script: make meta
+script: ./tests/run.sh
