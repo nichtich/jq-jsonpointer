@@ -4,6 +4,7 @@ module {
   "homepage": "https://github.com/nichtich/jq-jsonpointer#readme",
   "license": "MIT",
   "author": "Jakob Voß",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/nichtich/jq-jsonpointer.git"
