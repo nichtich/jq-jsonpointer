@@ -27,18 +27,15 @@ def pointer_tokens:
 def pointer_get(tokens):
   reduce (tokens | .[]) as $token (
     .;
-    .[
-      if type == "object" then
-        $token
-      elif type != "array" then
-        empty
-      elif $token|test("^0$|^[1-9][0-9]*$") then
-        $token|tonumber
-      else
-        empty
-        # error("expected array index in JSON Pointer, got \($token)")
-      end
-     ]
+    if type == "object" then
+      .[$token]
+    elif type != "array" then
+      empty
+    elif $token|test("^0$|^[1-9][0-9]*$") then
+      .[$token|tonumber]
+    else
+      empty
+    end
   )
 ;
 

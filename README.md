@@ -37,10 +37,7 @@ mkdir -p ~/.jq && wget -N https://github.com/nichtich/jsonpointer/raw/master/jso
 
 ## Usage
 
-See [jq manual](https://stedolan.github.io/jq/manual/#Modules) how to use modules and API description below.
-
-Character `-` to index the (nonexisting) member after the last array element is
-not supported.
+See [jq manual](https://stedolan.github.io/jq/manual/#Modules) how to use jq modules in general and API description below how to use this module.
 
 ## API
 
@@ -58,6 +55,10 @@ The value `42` can be accessed with JSON Pointer syntax like this:
 $ jq 'include "jsonpointer"; pointer("/foo/0/~1")' input.json'
 42
 ~~~
+
+Character `-` to index the (nonexisting) member after the last array element is
+not supported. If the JSON Pointer does not correspond to an existing element,
+the filter returns `null` instead of throwing an error.
 
 ### pointer_get(tokens)
 
