@@ -24,9 +24,8 @@ def pointer_tokens:
   end
 ;
 
-def pointer(json_pointer):
-  # TODO: handle special case of last token being '-' and filter through .[length]
-  reduce (json_pointer | pointer_tokens | .[]) as $token (
+def pointer_get(tokens):
+  reduce (tokens | .[]) as $token (
     .;
     .[
       if type == "object" then
@@ -41,4 +40,9 @@ def pointer(json_pointer):
       end
      ]
   )
+;
+
+def pointer(json_pointer):
+  (json_pointer | pointer_tokens) as $tokens |
+  pointer_get($tokens)
 ;

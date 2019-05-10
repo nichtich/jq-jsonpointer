@@ -11,8 +11,9 @@ This git repository contains an implementation of JSON Pointer ([RFC 6901](https
 * [Install](#install)
 * [Usage](#usage)
 * [API](#api)
-  * [pointer](#pointer)
-  * [pointer_tokens](#pointer-tokens)
+  * [pointer](#pointerjson_pointer)
+  * [pointer_get](#pointer_get_tokens)
+  * [pointer_tokens](#pointer_tokens)
 * [Contributing](#contributing)
 * [License](#license)
 
@@ -38,6 +39,9 @@ mkdir -p ~/.jq && wget -N https://github.com/nichtich/jsonpointer/raw/master/jso
 
 See [jq manual](https://stedolan.github.io/jq/manual/#Modules) how to use modules and API description below.
 
+Character `-` to index the (nonexisting) member after the last array element is
+not supported.
+
 ## API
 
 ### pointer(json_pointer)
@@ -52,6 +56,15 @@ The value `42` can be accessed with JSON Pointer syntax like this:
 
 ~~~sh
 $ jq 'include "jsonpointer"; pointer("/foo/0/~1")' input.json'
+42
+~~~
+
+### pointer_get(tokens)
+
+Same as [pointer](#pointerjson_pointer) but expects the JSON Pointer given as array of tokens:
+
+~~~sh
+$ jq 'include "jsonpointer"; pointer_get(["foo","0","/"]")' input.json'
 42
 ~~~
 
