@@ -12,7 +12,7 @@ This git repository contains an implementation of JSON Pointer ([RFC 6901](https
 * [Usage](#usage)
 * [API](#api)
   * [pointer](#pointerjson_pointer)
-  * [pointer_get](#pointer_get_tokens)
+  * [pointer_get](#pointer_gettokens)
   * [pointer_tokens](#pointer_tokens)
 * [Contributing](#contributing)
 * [License](#license)
