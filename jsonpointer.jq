@@ -5,6 +5,7 @@ module {
   "license": "MIT",
   "author": "Jakob Voß",
   "version": "1.0.0",
+  "jq": "1.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/nichtich/jq-jsonpointer.git"
