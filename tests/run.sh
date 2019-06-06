@@ -2,7 +2,7 @@
 # jq test runner
 
 DIR=$(dirname "${BASH_SOURCE[0]}")
-LIB=$DIR/..
+LIBS=(-L../ -L\~/.jq -L\$ORIGIN/../lib/jq -L\$ORIGIN/../lib)
 FAIL=0
 
 function jsonstream() {
@@ -15,9 +15,9 @@ function runtest() {
   JQ="$DIR"/$NAME.jq
 
   if [ -e "$IN" ]; then
-    jq -L"$LIB" -f "$JQ" "$IN"
+    jq ${LIBS[*]} -f "$JQ" "$IN"
   else
-    jq -L"$LIB" -f "$JQ" -n
+    jq ${LIBS[*]} -f "$JQ" -n
   fi
 }
 
