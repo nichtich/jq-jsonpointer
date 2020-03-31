@@ -52,7 +52,7 @@ Returns a filter compiled from a given JSON Pointer. For instance given a JSON f
 The value `42` can be accessed with JSON Pointer syntax like this:
 
 ~~~sh
-$ jq 'include "jsonpointer"; pointer("/foo/0/~1")' input.json'
+$ jq 'include "jsonpointer"; pointer("/foo/0/~1")' input.json
 42
 ~~~
 
@@ -65,7 +65,7 @@ the filter returns `null` instead of throwing an error.
 Same as [pointer](#pointerjson_pointer) but expects the JSON Pointer given as array of tokens:
 
 ~~~sh
-$ jq 'include "jsonpointer"; pointer_get(["foo","0","/"]")' input.json'
+$ jq 'include "jsonpointer"; pointer_get(["foo","0","/"]")' input.json
 42
 ~~~
 
